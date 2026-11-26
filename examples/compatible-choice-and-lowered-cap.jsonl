@@ -1,0 +1,15 @@
+{"at":0,"kind":"tenant","record":{"name":"live1","class":"live","guarantee":1}}
+{"at":0,"kind":"tenant","record":{"name":"live2","class":"live","guarantee":1}}
+{"at":0,"kind":"endpoint","record":{"name":"flex","epoch":1,"skill":["render","analyze"],"cap":1}}
+{"at":0,"kind":"endpoint","record":{"name":"special","epoch":1,"skill":["render"],"cap":1}}
+{"at":1,"kind":"request","record":{"id":"r","tenant":"live1","skill":"render","deadline":9,"preemptible":false}}
+{"at":1,"kind":"request","record":{"id":"a","tenant":"live2","skill":"analyze","deadline":8,"preemptible":false}}
+{"at":2,"kind":"tick","record":{}}
+{"at":3,"kind":"sent","record":{"id":"r","permit":"pr","endpoint":"special","epoch":1}}
+{"at":3,"kind":"sent","record":{"id":"a","permit":"pa","endpoint":"flex","epoch":1}}
+{"at":4,"kind":"endpoint","record":{"name":"flex","epoch":1,"skill":["render","analyze"],"cap":0}}
+{"at":5,"kind":"accept","record":{"permit":"pa"}}
+{"at":6,"kind":"request","record":{"id":"next","tenant":"live2","skill":"analyze","deadline":12,"preemptible":false}}
+{"at":7,"kind":"inspect","record":{"tenant":"live2"}}
+{"at":8,"kind":"result","record":{"permit":"pa","endpoint":"flex","epoch":1,"outcome":"done"}}
+{"at":9,"kind":"inspect","record":{"tenant":"live2"}}

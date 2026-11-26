@@ -1,0 +1,16 @@
+{"at":0,"kind":"tenant","record":{"name":"live","class":"live","guarantee":1}}
+{"at":0,"kind":"tenant","record":{"name":"history","class":"batch","guarantee":0}}
+{"at":0,"kind":"endpoint","record":{"name":"a","epoch":1,"skill":["render"],"cap":1}}
+{"at":0,"kind":"endpoint","record":{"name":"b","epoch":1,"skill":["index"],"cap":1}}
+{"at":1,"kind":"request","record":{"id":"back","tenant":"history","skill":"render","deadline":20,"preemptible":true}}
+{"at":2,"kind":"sent","record":{"id":"back","permit":"p","endpoint":"a","epoch":1}}
+{"at":3,"kind":"accept","record":{"permit":"p"}}
+{"at":4,"kind":"request","record":{"id":"live1","tenant":"live","skill":"render","deadline":16,"preemptible":false}}
+{"at":5,"kind":"stop","record":{"permit":"p"}}
+{"at":6,"kind":"result","record":{"permit":"p","endpoint":"a","epoch":1,"outcome":"unknown"}}
+{"at":7,"kind":"request","record":{"id":"other","tenant":"history","skill":"index","deadline":20,"preemptible":false}}
+{"at":8,"kind":"sent","record":{"id":"other","permit":"i","endpoint":"b","epoch":1}}
+{"at":9,"kind":"restart","record":{}}
+{"at":10,"kind":"inspect","record":{"tenant":"live"}}
+{"at":11,"kind":"result","record":{"permit":"p","endpoint":"a","epoch":1,"outcome":"stopped"}}
+{"at":12,"kind":"sent","record":{"id":"live1","permit":"first","endpoint":"a","epoch":1}}
